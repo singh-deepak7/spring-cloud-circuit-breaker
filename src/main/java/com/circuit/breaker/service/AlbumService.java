@@ -24,8 +24,8 @@ public class AlbumService {
 
     public String getAlbumList() {
         CircuitBreaker circuitBreaker = circuitBreakerFactory.create("circuitbreaker");
-        String url = "https://jsonplaceholder.typicode.com/albums";
-        String error_url = "https://jsonplaceholde.typicode.com/albums";
+        //String url = "https://jsonplaceholder.typicode.com/albums";
+        String url = "https://jsonplaceholde.typicode.com/albums";
 
         return circuitBreaker.run(() -> restTemplate.getForObject(url, String.class), throwable -> getDefaultAlbumList());
     }
